@@ -1,0 +1,12 @@
+<div class="sidebar-layout" [ngClass]="{'open': showSwitchLayout}">
+  <div class="sidebar-layout-icon" (click)="showSwitch();">
+    <i aria-hidden="true" class="fa fa-pencil-square-o"></i>
+  </div>
+  <div class="sidebar-layout-header modal-header">Layouts</div>
+  <div class="sidebar-layout-tabs d-flex justify-content-around align-items-center">
+    <p *ngFor="let item of sidebarItems; let i = index" [ngClass]="{'active': item.active}" (click)="changeSidebar(i);">
+      <img src="./src/assets/images/{{item.num}}.png" alt="">
+      <span>{{item.name}}</span>
+    </p>
+  </div>
+</div>

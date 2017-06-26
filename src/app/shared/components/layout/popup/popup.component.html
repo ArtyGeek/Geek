@@ -1,0 +1,16 @@
+<div [ngClass]="[openedPopup ? 'popup popup-color-' + popupColor + ' open' : 'popup popup-color-' + popupColor]">
+	<div *ngFor="let item of items; let i=index;" class="popup-column">
+		<div class="popup-block" *ngFor="let block of item.column; let j=index;">
+			<div *ngIf="block.children">
+				<p class="popup-title">{{block.title}}</p>
+				<ul class="nav flex-column menu popup-nav">
+					<app-layout-popup-link [list]="block" [id]="i+'-'+j"></app-layout-popup-link>
+				</ul>
+			</div>
+			<a href="#" class="popup-label" *ngIf="block.link">
+				<span>{{block.title}}</span>
+				<i class="fa fa-angle-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+</div>

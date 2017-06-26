@@ -1,0 +1,7 @@
+<div class="helper {{position}}" *ngIf="showHelper">
+  <div class="helper-content">
+    <span *ngIf="helperContent">{{helperContent}}</span>
+    <ng-content></ng-content>
+  </div>
+  <div class="triangle"></div>
+</div>

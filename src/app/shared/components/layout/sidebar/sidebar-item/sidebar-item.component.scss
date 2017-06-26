@@ -1,0 +1,149 @@
+@import './src/assets/styles/variables';
+
+.nav-item {
+  padding: 10px 0;
+  font-weight: 500;
+  position: relative;
+  cursor: pointer;
+
+  &.two-level {
+    padding: 12px 10px;
+    // border-bottom: 1px solid #ececec;
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+}
+
+.menu-link {
+  // color: #666666;
+  transition: $transition-time;
+  font-size: 12px;
+  position: relative;
+
+  &.two-level {
+    // color: rgba(255, 255, 255, 0.85);;
+    // padding: 5px 0;
+  }
+
+  .menu-icon {
+    width: 30px;
+    font-size: 16px;
+
+    img {
+      max-width: 17px;
+      max-height: 17px;
+    }
+  }
+
+  .menu-label {
+    opacity: 0.85;
+    outline: none;
+  }
+
+  &.collapsed {
+    .menu-item-toggle {
+      transform: rotate(0);
+    }
+  }
+
+  .menu-item-toggle {
+    position: absolute;
+    right: 0px;
+    transition: $transition-time;
+    transform: rotate(180deg);
+
+    &:before {
+      display: inline-block;
+      height: 17px;
+    }
+  }
+
+  &.current-service{
+    border-left: 5px solid #2179e3;
+    margin-left: -15px;
+    padding-left: 10px;
+  }
+
+  &:hover {
+    // color: #333;
+  }
+
+  // &.two-level:hover {
+  //   color: #fff;
+  // }
+}
+
+.submenu {
+  padding-left: 10px;
+  
+  .submenu {
+    padding-left: 10px;
+  }
+
+  .active {
+    font-weight: 500;
+    // color: #f76d6d;
+  }
+}
+
+.nav-item .submenu .nav-item {
+  border-bottom: 0;
+  padding: 0;
+}
+
+.nav-link {
+  padding: 0;
+  padding-top: 5px;
+  font-weight: 400;
+  // color: #666666;
+  opacity: 0.85;
+  transition: $transition-time;
+  font-size: 12px;
+
+  // &.two-level {
+  //   color: #fff;
+  // }
+
+  .menu-label {
+    display: inline-block;
+    outline: none;
+  }
+
+  &:first-child {
+    padding-top: 10px;
+  }
+
+  &:hover {
+    // color: #333;
+  }
+
+  // &.two-level:hover {
+  //   color: #fff;
+  // }
+
+  &.active:hover {
+    // color: #217ae4;
+  }
+
+  &.collapsed {
+    .menu-item-toggle {
+      transform: rotate(0);
+    }
+  }
+
+  .menu-item-toggle {
+    position: absolute;
+    right: 0px;
+    transition: $transition-time;
+    transform: rotate(180deg);
+
+    &:before {
+      display: inline-block;
+      height: 17px;
+    }
+  }
+}
+
+

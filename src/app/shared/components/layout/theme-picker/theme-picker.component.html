@@ -1,0 +1,18 @@
+<div class="theme-picker-button d-flex align-items-center justify-content-center" (click)="showPicker()" [ngClass]="{'active': isPickerOpen}">
+  <img src="./assets/images/picker-icon.png" alt="">
+</div>
+
+<div class="themes-container" #themepicker [ngClass]="{'none': !isPickerOpen}">
+  <div class="header">
+    Customize menu
+    <span class="fa fa-close close-picker" (click)="showPicker()"></span>
+  </div>
+  <div class="template-container">
+    <p class="template-container-title">Template grid:</p>
+    <img *ngFor="let item of sidebarLayouts; let i=index" src="{{item.src}}" [ngClass]="{'active': item.active}" (click)="chooseLayout(item, i)">
+  </div>
+  <div class="template-container">
+    <p class="template-container-title">Navigation bar color:</p>
+    <img *ngFor="let item of colorThemes; let i=index" src="{{item.src}}" [ngClass]="{'active': item.active}" (click)="chooseColorTheme(item, i)">
+  </div>
+</div>

@@ -1,0 +1,139 @@
+@import './src/assets/styles/variables';
+
+.color-picker {
+  width: 200px;
+  position: fixed;
+  top: 130px;
+  right: -200px;
+  border: 1px solid rgba(51,51,51, 0.25);
+  z-index: 2;
+  transition: $transition-time;
+  background: #fff;
+
+  .picker-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid rgba(51,51,51, 0.25);
+    top: 0;
+    left: -40px;  
+    line-height: 40px;
+    text-align: center;  
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .picker-header {
+    font-size: 15px;
+    color: #333;
+    font-weight: 500;
+    text-align: center;
+    padding: 9px;
+    padding-left: 50px;
+    border-bottom: 1px solid rgba(51,51,51, 0.25);
+  }
+
+  .picker-tabs {
+    min-height: 40px;
+    border-bottom: 1px solid rgba(51,51,51, 0.25);
+    cursor: pointer;
+
+    p {
+      margin: 0;
+      position: relative;
+      font-size: 12px;
+
+      &.active:before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 90%;
+        height: 2px;
+        background: #227ce8;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .picker-colors {
+    padding: 25px 20px;
+    display: none;
+
+    &.open {
+      display: block;
+    }
+
+    .color {
+      width: 20px;
+      height: 20px;
+      margin: 10px 0;
+      border: 1px solid transparent;
+      position: relative;
+      cursor: pointer;
+
+      &.active {
+
+        &:before {
+          content: "\f00c";
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: 12px;
+          text-align: center;
+          padding-left: 3px;
+        }
+      }
+
+      &.border {
+        border: 1px solid #227ce8;
+      }
+
+      // backgrounds??
+      &.color-fff {
+        background-color: #fff;
+      }
+      &.color-227ce8 {
+        background-color: #227ce8;
+      }
+      &.color-d0011b {
+        background-color: #d0011b;
+      }
+      &.color-50e3c2 {
+        background-color: #50e3c2;
+      }
+      &.color-333 {
+        background-color: #333;
+      }
+      &.color-780bd7 {
+        background-color: #780bd7;
+      }
+      &.color-fea20c {
+        background-color: #fea20c;
+      }
+      &.color-71c613 {
+        background-color: #71c613;
+      }
+      &.color-d15ae9 {
+        background-color: #d15ae9;
+      }
+      &.color-8b572a {
+        background-color: #8b572a;
+      }
+    }
+  }
+
+  &.open {
+    right: 0;
+
+    .picker-icon {
+      left: 10px;    
+      border: none;
+      line-height: 43px;
+    }
+  }
+}
+
+.none {
+  display: none;
+}

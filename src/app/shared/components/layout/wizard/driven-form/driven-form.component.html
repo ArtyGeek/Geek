@@ -1,0 +1,23 @@
+<form #contactForm="ngForm" [hidden]="!isActive" novalidate (ngSubmit)="submitForm(contactForm)">
+  <div class="form-group">
+    <label for="inputName" class="required">Name</label>
+      <div class="input-group mr-sm-2">
+        <div class="input-group-addon required" *ngIf="!contactFormData.name"></div>
+         <input type="text" class="form-control driven-form-input" id="inputName" name="inputName" placeholder="Name" required [(ngModel)]="contactFormData.name">
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="inputName">Age</label>
+    <div class="input-group mr-sm-2">
+      <input type="text" class="form-control driven-form-input" id="inputAge" name="inputAge" placeholder="Your age" aria-describedby="ageHelp" [(ngModel)]="contactFormData.age">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail" class="required">Email address</label>
+    <div class="input-group mr-sm-2">
+      <div class="input-group-addon required" *ngIf="!contactFormData.email"></div>
+      <input type="email" class="form-control driven-form-input" id="inputEmail" name="inputEmail" placeholder="Email" aria-describedby="emailHelp" required [(ngModel)]="contactFormData.email">
+    </div>
+  </div>
+
+</form>

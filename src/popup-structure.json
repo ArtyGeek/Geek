@@ -1,0 +1,149 @@
+[
+  {
+    "column": [
+      {
+        "title": "Cases",
+        "children": [
+          {
+            "name": "Your Open Case",
+            "children": [
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              }
+            ]
+          },
+          {
+            "name": "Your Open Case",
+            "disabled": true
+          },
+          {
+            "name": "Your Open Case"
+          }
+        ]
+      },
+      {
+        "title": "Platforms",
+        "children": [
+          {
+            "name": "Your Open Case"
+          },
+          {
+            "name": "Your Open Case"
+          },
+          {
+            "name": "Your Open Case",
+            "children": [
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              }
+            ]
+          },
+          {
+            "name": "Your Open Case"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "column": [
+      {
+        "title": "Settings",
+        "children": [
+          {
+            "name": "Your Open Case",
+            "children": [
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              }
+            ]
+          },
+          {
+            "name": "Your Open Case"
+          },
+          {
+            "name": "Your Open Case"
+          }
+        ]
+      },
+      {
+        "title": "Platforms",
+        "children": [
+          {
+            "name": "Your Open Case"
+          },
+          {
+            "name": "Your Open Case",
+            "disabled": true,
+            "children": [
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              }
+            ]
+          },
+          {
+            "name": "Your Open Case"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "column": [
+      {
+        "title": "Cases/rmas",
+        "children": [
+          {
+            "name": "Your Open Case",
+            "children": [
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              },
+              {
+                "name": "Your Open Case"
+              }
+            ]
+          },
+          {
+            "name": "Your Open Case"
+          }
+        ]
+      },
+      {
+        "title": "Settings",
+        "link": true
+      },
+      {
+        "title": "Services",
+        "link": true
+      }
+    ]
+  }
+]

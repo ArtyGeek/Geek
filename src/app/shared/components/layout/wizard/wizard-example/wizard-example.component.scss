@@ -1,0 +1,46 @@
+.wizard-container {
+  margin: 30px 0;
+}
+
+.wizard-title {
+  font-size: 30px;
+  color: #666;
+  text-align: center;
+  position: relative;
+  margin-bottom: 60px;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 250px;
+    background: #ccc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+  }
+}
+
+.wizard-subtitle{
+  font-size: 22px;
+  font-weight: 500;
+  color: #666;
+  text-align: center;
+}
+
+.wizard-text {
+  width: 60%;
+  margin: 20px auto;
+  font-size: 16px;
+  text-align: center;
+}
+
+.wizard-orientation {
+  margin-bottom: 50px;
+  cursor: pointer;
+  // color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}

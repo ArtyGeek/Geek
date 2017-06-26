@@ -1,0 +1,16 @@
+.theme-picker-button {
+  width: 75px;
+  height: 60px;
+  // background: #ececec;
+  cursor: pointer;
+  transition: 0.3s;
+
+  img {
+    width: 25px;
+  }
+
+  &.active {
+    // background: #ccc;
+  }
+}
+

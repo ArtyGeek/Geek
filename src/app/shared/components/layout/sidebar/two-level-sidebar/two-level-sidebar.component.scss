@@ -1,0 +1,65 @@
+@import './src/assets/styles/variables';
+
+.two-level-sidebar {
+  height: 100%;
+  width: 55px;
+  overflow: hidden;
+  transition: 0.3s;
+
+  .main-column{
+    width: 55px;
+    min-width: 55px;
+    text-align: center;
+    
+    .main-column-item {
+      height: 60px;
+      cursor: pointer;
+      position: relative;
+      
+      i {
+        font-size: 20px;
+      }
+
+      &.active{
+        
+        &:before {
+          content: '';
+          display: block;
+          width: 3px;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .sidebar-column {
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    transition: $transition-time;
+
+    .header {
+      height: 60px;
+      font-size: 15px;
+      font-weight: 500;
+      opacity: 0.85;
+      padding-left: 10px;
+    }
+  } 
+
+  &.open {
+    width: 210px;
+    transition: 0.3s;
+
+    .sidebar-column {
+      width: 165px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+

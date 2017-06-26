@@ -1,0 +1,118 @@
+.helper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 40px;
+  background: #4990e2;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px;
+  z-index: 10;
+  font-family: 'Geometria';
+
+  .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 10px solid #4990e2;
+    border-bottom: 10px solid transparent;
+  } 
+  
+  &.left {
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+
+    .triangle {
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%) rotate(180deg);
+    }
+  } 
+
+  &.right {
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+
+    .triangle {
+      left: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  } 
+
+  &.top {
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    .triangle {
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-90deg);
+    }
+  } 
+
+  &.bottom {
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+
+    .triangle {
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(90deg);
+    }
+  }
+
+  &.top-right {
+    bottom: calc(100% + 10px);
+    left: 100%;
+
+    .triangle {
+      top: 100%;
+      left: 0;
+      transform: translate(0, -50%) rotate(180deg);
+    }
+  }
+
+  &.top-left {
+    bottom: calc(100% + 10px);
+    right: 100%;
+
+    .triangle {
+      top: 100%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+  }
+
+   &.bottom-right {
+    top: calc(100% + 10px);
+    left: 100%;
+
+    .triangle {
+      bottom: calc(100% - 20px);
+      left: 0;
+      transform: translate(0, -50%) rotate(180deg);
+    }
+  }
+
+  &.bottom-left {
+    top: calc(100% + 10px);
+    right: 100%;
+
+    .triangle {
+      bottom: calc(100% - 20px);
+      right: 0;
+      transform: translate(0, -50%);
+    }
+  }
+
+}

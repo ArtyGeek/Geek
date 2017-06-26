@@ -1,0 +1,22 @@
+<app-layout-header *ngIf="popupItems" [popupItems]="popupItems" [userInfo]="userInfo" [notifications]="notifications"></app-layout-header>
+<div class="layout">
+  <div class="layout-row d-flex" >
+    <div class="sidebar-col" [ngClass]="{'full': (sidebarName === 'one') || (sidebarName === 'two' && !sidebarMin)}">
+      <div *ngIf="items">
+        <app-one-level-sidebar [items]="items" *ngIf="sidebarName === 'one'"></app-one-level-sidebar>
+        <app-two-level-sidebar [items]="items" *ngIf="sidebarName === 'two'" (minSidebar)="getSidebarWidth($event)"></app-two-level-sidebar>
+      </div>
+    </div>
+    <div class="main">
+      <app-breadcrumbs (sidebarName)="getSidebarName($event)" (themeColor)="getThemeColor($event)"></app-breadcrumbs>
+      <div class="core">
+        <router-outlet></router-outlet>  
+        <!-- <helper-example></helper-example> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-color-picker (headerColor)='getHeaderColor($event)' (firstSidebarColor)='getFirstSidebarColor($event)' (secondSidebarColor)='getSecondSidebarColor($event)'></app-color-picker>
+<app-switch-layout (sidebarName)='getSidebarName($event)'></app-switch-layout>
+ -->

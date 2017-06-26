@@ -1,0 +1,79 @@
+<div class="wizard-container">
+    <p class="wizard-orientation" (click)="changeWizardOrientation();">Change Wizard Orientation</p>
+    <zion-wizard [leftSide]="vertical" [isActive]="true" [stepValue]="currentStepValue">
+
+        <wizard-reactive-form #wizardStep [help]="'Information about step'" [title]="'Account Details'" [icon]="'fa-user'" [hasForm]="true" [needInsideConfirmation]="true" (onSubmitEvent)="submitEvent($event)"></wizard-reactive-form>
+
+        <zion-wizard #wizardStep [onPopup]="true" [title]="'Account'" [icon]="'fa-user'" [leftSide]="true">
+            <zion-wizard-step #wizardStepPopup [title]="'Extra step 1'" [icon]="'fa-envelope'">
+                <h2 class="wizard-title">Extra step1</h2>
+            </zion-wizard-step>
+            <zion-wizard-step #wizardStepPopup [title]="'Extra step 2'" [icon]="'fa-star'">
+                <div [ngSwitch]="isCompleted">
+                    <div *ngSwitchDefault>
+                        <h2 class="wizard-title">Thank you for your patience</h2>
+                        <h4 class="wizard-subtitle">Please check info!</h4>
+                    </div>
+                    <div *ngSwitchCase="true">
+                        <h2 class="wizard-title">End</h2>
+                    </div>
+                </div>
+            </zion-wizard-step>
+        </zion-wizard>
+
+        <wizard-driven-form #wizardStep [title]="'Personal Information'" [icon]="'fa-info'" [hasForm]="true"></wizard-driven-form>
+
+        <zion-wizard-step #wizardStep [title]="'Credit Card Information'" [icon]="'fa-usd'" (onPrev)="onPrev2Step($event)" [showNext]="showNext" [showPrev]="showPrev">
+            <h2>Step 2</h2>
+            <form>
+                <div class="form-check">
+                    <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="show-next" [(ngModel)]="showNext" />
+            Show Next button
+          </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="show-prev" [(ngModel)]="showPrev" />
+            Show Prev button
+          </label>
+                </div>
+                <div class="form-check" style="margin-top: 50px;">
+                    <label class="form-check-label">
+            <input type="checkbox" class="form-check-input" name="extra-step" [(ngModel)]="showExtraStep"/>
+            Show extra step!
+          </label>
+                </div>
+                <button class="btn btn-secondary next-button" (click)="showWizardPopup()">Show wizard on popup</button>
+                <p *ngIf="completeWizard">Wizard on popup is completed!</p>
+            </form>
+        </zion-wizard-step>
+
+        <zion-wizard-step #wizardStep [title]="'Extra step'" [icon]="'fa-envelope'" [hidden]="!showExtraStep">
+            <h2 class="wizard-title">Extra step</h2>
+        </zion-wizard-step>
+
+        <zion-wizard-step #wizardStep [title]="'Finish'" [icon]="'fa-check'" (onComplete)="onComplete($event)">
+            <div [ngSwitch]="isCompleted">
+                <div *ngSwitchDefault>
+                    <h2 class="wizard-title">Thank you for your patience</h2>
+                    <h4 class="wizard-subtitle">Please confirm your Email address</h4>
+                    <p class="wizard-text">We’ll send an email to this address <a href="mailto:{{contactFormData.email}}">{{contactFormData.email}}</a> to confirm that is correct.</p>
+                </div>
+                <div *ngSwitchCase="true">
+                    <h2 class="wizard-title">Thank you for your patience</h2>
+                    <h4 class="wizard-subtitle">This is the end!</h4>
+                </div>
+            </div>
+        </zion-wizard-step>
+    </zion-wizard>
+
+    <zion-wizard [onPopup]="true" [isActive]="showWizard" [showOnClick]="true" (onPopupComplete)="completePopup($event)">
+        <zion-wizard-step #wizardStepPopup [title]="'Finish'" [icon]="'fa-check'">
+            <h2 class="wizard-title">1</h2>
+        </zion-wizard-step>
+        <zion-wizard-step #wizardStepPopup [title]="'Finish'" [icon]="'fa-check'">
+            <h2 class="wizard-title">2</h2>
+        </zion-wizard-step>
+    </zion-wizard>
+</div>

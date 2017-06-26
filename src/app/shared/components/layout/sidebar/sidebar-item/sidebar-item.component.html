@@ -1,0 +1,13 @@
+<li class="nav-item" *ngFor="let item of activeItem.children;" [ngClass]="{'two-level': level==='two'}">
+  <a [ngClass]="{'collapsed sidebar-link': true, 'menu-link d-flex align-items-center': item.iconClass, 'nav-link': !item.iconClass, 'two-level': level==='two'}" href="#{{item.id}}{{level}}" data-toggle="collapse" aria-expanded="false" aria-controls="account" (click)="showData(item);">
+    <i class="fa fa-sort-desc menu-item-toggle" aria-hidden="true" *ngIf="item.children"></i>
+    <!-- <div class="menu-icon" *ngIf="item.iconClass && level==='one'">
+      <i class="fa {{item.iconClass}}" aria-hidden="true"></i>
+    </div> -->
+    <p class="menu-label" *ngIf="item.children">{{item.name}}</p>
+    <p class="menu-label" *ngIf="!item.children" routerLink="{{item.routerLink}}" routerLinkActive="active">{{item.name}}</p>
+  </a>
+  <ul class="submenu collapse" id="{{item.id}}{{level}}" *ngIf="item.children;">
+    <app-sidebar-item [activeItem]="item" [level]="level"></app-sidebar-item>
+  </ul>
+</li>

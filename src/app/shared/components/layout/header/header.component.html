@@ -1,0 +1,33 @@
+<!-- <nav class="navbar navbar-toggleable navbar-light fixed-top bg-faded zion-header color-{{color}}"> -->
+<nav class="navbar navbar-toggleable navbar-light fixed-top bg-faded zion-header">
+    <a href="#" class="navbar-brand">GEEK</a>
+    <div class="collapse navbar-collapse justify-content-end" id="header-navbar">
+        <ul class="navbar-nav align-items-center header-admin-nav">
+            <li class="nav-item popup-link" (click)="showPopup($event);" [ngClass]="{'active': openedPopup}">
+                <span id="popup-button">Pop-up</span>
+                <app-layout-popup [items]="popupItems" [openedPopup]="openedPopup" (outsileClick)="closePopup($event)"></app-layout-popup>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link notifications">
+                    <i class="fa fa-bell notification-icon" aria-hidden="true"></i>
+                    <zion-notification [notificationList]="notifications"></zion-notification>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle custom-arrow d-flex align-items-center user" id="selectControler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="user-image">
+                        <img src="{{userInfo.imageLink}}" alt="">
+                    </div>
+                    <span class="user-name">{{userInfo.name}}
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fa fa-question-circle-o help" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

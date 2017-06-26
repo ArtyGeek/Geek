@@ -1,0 +1,9 @@
+<li class="nav-item" *ngFor="let item of list.children; let i=index;">
+  <a class="collapsed menu-link popup-inner-link nav-link d-flex align-items-center" [ngClass]="{'link-container': item.children, 'disabled': item.disabled}" href="#popup-id-{{id}}-{{i}}" data-toggle="collapse" aria-expanded="false" aria-controls="account" (click)="preventAction($event)">
+    <i class="fa fa-sort-desc menu-item-toggle" aria-hidden="true" *ngIf="item.children;" [ngClass]="{'disabled': item.disabled}"></i>
+    <p [ngClass]="{'disabled': item.disabled}">{{item.name}}</p>
+  </a>
+  <ul class="submenu popup-submenu collapse" id="popup-id-{{id}}-{{i}}" *ngIf="item.children;">
+    <app-layout-popup-link [list]="item" [id]="id+'-'+i"></app-layout-popup-link>
+  </ul>
+</li>

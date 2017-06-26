@@ -1,0 +1,20 @@
+<div class="fa fa-cog" (click)="openDropdown($event)"></div>
+
+<ul class="dropdown-items none" #dropdownlist *ngIf="!toggleColumns">
+  <li *ngFor="let item of dropdownItems" (click)="item.action()">
+    <i class="fa {{item.icon}}"></i>
+    <span>{{item.title}}</span>
+  </li>
+</ul>
+
+<ul class="dropdown-items none" #dropdownlist *ngIf="toggleColumns">
+  <li *ngFor='let item of dropdownItems'>
+    <input
+      type='checkbox'
+      [id]="item.name"
+      (click)='item.toggle(item)'
+      [checked]='item.action(item)'
+    />
+    <label [attr.for]="item.name">{{item.name}}</label>
+  </li>
+</ul>

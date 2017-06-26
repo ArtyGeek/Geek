@@ -1,0 +1,6 @@
+<div class="notification-component">
+  <div class="notification-number" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{notificationNumber}}</div>
+  <div class="dropdown-menu notification-dropdown">
+    <a class="dropdown-item notification-dropdown-item" href="#" *ngFor="let item of notificationList">{{item.name}} <span>({{item.number}})</span></a>
+  </div>
+</div>

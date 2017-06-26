@@ -1,0 +1,44 @@
+.notification-component {
+  position: absolute;
+  left: 50%;
+  top: 0;
+
+  .notification-number {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    color: #fff;
+    // background: #4db220;
+    // border: 1px solid #333;
+    font-size: 9px;
+    text-align: center;
+    line-height: 17px;
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
+  &.show {
+    .notification-dropdown {
+      display: block;
+      left: auto;
+      right: 50%;
+      margin: 0;
+
+      .notification-dropdown-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        text-transform: capitalize;
+        margin: 5px 0;
+
+        span {
+          display: inline-block;
+          min-width: 25px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

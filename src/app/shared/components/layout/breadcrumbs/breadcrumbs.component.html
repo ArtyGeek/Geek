@@ -1,0 +1,22 @@
+<ol class="breadcrumb zion-breadcrumb d-flex align-items-center">
+  <!-- <li class="breadcrumb-item" *ngFor="let item of path; let i = index;" [ngClass]="{'active': i === (path.length-1)}">
+    <span>{{item}}</span>
+  </li> -->
+  <li class="breadcrumb-item">
+    <span>Settings</span>
+  </li>
+  <li class="breadcrumb-item active">
+    <span>Grid</span>
+  </li>
+  <!-- <li class="breadcrumb-item dropdown">
+    <span class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Billings</span>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a href="#" class="dropdown-item">Account</a>
+      <a href="#" class="dropdown-item">Billings</a>
+      <a href="#" class="dropdown-item">Security</a>
+    </div>
+  </li> -->
+  <div class="breadcrumbs-picker-container">
+    <zion-theme-picker (sidebarName)="getSidebarName($event)" (themeColor)="getThemeColor($event)"></zion-theme-picker> 
+  </div>
+</ol>

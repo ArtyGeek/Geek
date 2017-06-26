@@ -1,0 +1,42 @@
+@import './src/assets/styles/variables';
+
+.layout {
+  padding-top: $header-height;
+  height: 100%;
+
+  .layout-row {
+    height: 100%;
+  }
+}
+
+.sidebar-col {
+  height: 100%;
+  width: 55px;
+  transition: 0.3s;
+
+  &.full {
+    width: 210px;
+  }
+
+  div {
+    height: 100%;
+  }
+}
+
+.main {
+  // width: 100%;
+  padding: 0;
+  flex: 1;
+}
+
+.core {
+  padding: 25px 45px;
+  // padding-bottom: 200px;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+}
+
+.helper-button {
+  display: inline-block;
+  margin: 50px 15px;
+}

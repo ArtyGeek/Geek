@@ -1,0 +1,195 @@
+[
+  {
+    "name": "Components",
+    "id": "id-1",
+    "iconClass": "fa-cog",
+    "children": [
+      {
+        "name": "Pages",
+        "id": "id-105",
+        "iconClass": "fa-shield",
+        "children": [
+          {
+            "name": "Wizard",
+            "id": "id-106",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "Forms",
+            "id": "id-107",
+            "routerLink": "/forms"
+          },
+          {
+            "name": "Grid",
+            "id": "id-108",
+            "routerLink": "/grid"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Services",
+    "id": "id-10",
+    "iconClass": "fa-wrench",
+    "children": [
+      {
+        "name": "Service-1",
+        "id": "id-11",
+        "iconClass": "fa-user",
+        "children": [
+          {
+            "name": "S-1-1",
+            "id": "id-12",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "S-1-2",
+            "id": "id-13",
+            "routerLink": "/wizard"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "id": "id-17",
+    "iconClass": "fa-bookmark",
+    "children": [
+      {
+        "name": "Aplications",
+        "id": "id-18",
+        "iconClass": "fa-usd",
+        "children": [
+          {
+            "name": "Web",
+            "id": "id-19",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "Mobile",
+            "id": "id-20",
+            "routerLink": "/wizard"
+          }
+        ]
+      },
+      {
+        "name": "Network",
+        "id": "id-21",
+        "iconClass": "fa-user",
+        "children": [
+          {
+            "name": "Method",
+            "id": "id-22",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "Bills",
+            "id": "id-23",
+            "routerLink": "/wizard"
+          }
+        ]
+      },
+      {
+        "name": "Operating Systems",
+        "id": "id-24",
+        "iconClass": "fa-snowflake-o",
+        "routerLink": "/wizard"
+      }
+    ]
+  },
+  {
+    "name": "Support",
+    "id": "id-25",
+    "iconClass": "fa-star",
+    "children": [
+      {
+        "name": "Management",
+        "id": "id-26",
+        "iconClass": "fa-snowflake-o",
+        "children": [
+          {
+            "name": "Open Cases",
+            "id": "id-27",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "Support",
+            "id": "id-28",
+            "routerLink": "/wizard"
+          }
+        ]
+      },
+      {
+        "name": "Docs",
+        "id": "id-29",
+        "iconClass": "fa-user",
+        "children": [
+          {
+            "name": "Platforms",
+            "id": "id-30",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "Documentation",
+            "id": "id-31",
+            "routerLink": "/wizard"
+          }
+        ]
+      },
+      {
+        "name": "Security",
+        "id": "id-32",
+        "iconClass": "fa-star",
+        "children": [
+          {
+            "name": "Platforms",
+            "id": "id-33",
+            "routerLink": "/wizard"
+          },
+          {
+            "name": "Documentation",
+            "id": "id-34",
+            "children": [
+              {
+                "name": "lib",
+                "id": "id-35",
+                "routerLink": "/wizard"
+              },
+              {
+                "name": "docs level",
+                "id": "id-36",
+                "children": [
+                  {
+                    "name": "level",
+                    "id": "id-37",
+                    "routerLink": "/wizard"
+                  },
+                  {
+                    "name": "docs",
+                    "id": "id-38",
+                    "routerLink": "/wizard"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Lock",
+    "id": "is-39",
+    "iconClass": "fa-lock",
+    "children": [
+      {
+        "name": "Platforms",
+        "iconClass": "fa-lock",
+        "id": "id-40",
+        "routerLink": "/wizard"
+      }
+    ]
+  }
+]

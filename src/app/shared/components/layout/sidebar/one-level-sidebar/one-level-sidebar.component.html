@@ -1,0 +1,14 @@
+<div class="sidebar h-100 d-flex flex-column">
+  <div class="sidebar-first" [ngClass]="{'open': showAllItems}">
+    <i class="fa fa-sort-desc sidebar-toggle" aria-hidden="true" (click)="openIcons();"></i>
+    <div class="icon-container d-flex align-items-center flex-wrap">
+      <i class="fa icon {{item.iconClass}}" [ngClass]="{'active': item.active}" aria-hidden="true" *ngFor="let item of items; let i = index" id="{{i}};" (click)="updateSidebar(i);"></i>
+    </div>
+  </div>
+  <div class="sidebar-second fill">
+    <div class="header">{{activeItem.name}}</div>
+    <ul class="nav flex-column menu">
+      <app-sidebar-item [activeItem]="activeItem" [level]="level"></app-sidebar-item>
+    </ul>
+  </div>
+</div>

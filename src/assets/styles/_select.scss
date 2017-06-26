@@ -1,0 +1,57 @@
+// select2 dropdown styles, because dropdown appends at the end of body
+.select2-container--open .select2-dropdown--below {
+    border-radius: 0!important;
+    border: 1px solid #cacaca!important;
+    border-top: none!important;
+}
+
+.select2-search--dropdown {
+    padding: 10px!important;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    &:after {
+        content: "\f002";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #bdbdbd;
+        right: 20px;
+    }
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border-radius: 8px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #cacaca!important;
+    padding-left: 14px;
+    padding-right: 25px;
+    color: #333;
+    &:focus {
+        outline: none!important;
+    }
+}
+
+.select2-results__option[aria-selected] {
+    padding-left: 25px;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #ededed!important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    font-weight: 600;
+}
+
+.select2-container--default .select2-results__group {
+    padding-left: 25px!important;
+}
+
+.select2-container--default .select2-results__option .select2-results__option {
+    padding-left: 40px!important;
+}

@@ -1,0 +1,121 @@
+<div class="select-group">
+  <p>Dropdown with search and an option to group the values:</p>
+  <zion-select [data]="selectData"></zion-select>
+  <zion-select [data]="selectChildren" ></zion-select>
+</div>
+<div class="select-group">
+  <p>Multi-select with search and an option to group the values:</p>
+  <zion-select [data]="selectData" [options]="selectOptions"></zion-select>
+  <zion-select [data]="selectChildren" [options]="selectOptions"></zion-select>
+</div>
+<!-- <div class="select-group">
+  <p>Multi-select with an option to reorder the selected options:</p>
+  <div id="dnd-helper">
+    <zion-select [data]="selectDnD" [options]="selectOptions" [dragAndDrop]="true"></zion-select>
+    <zion-helper [for]="'#dnd-helper'" [helperContent]="'We should implement ng2-dnd..'" [trigger]="'hover'" [position]="'top-right'"></zion-helper>
+  </div>
+</div> -->
+<div class="select-group">
+  <p>Select with template:</p>
+  <zion-select [data]="templateList" [options]="selectTemplateOptions"></zion-select>
+</div>
+
+<div class="check-block">
+  <div class="select-group">
+    <p>Checkboxes:</p>
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Check this checkbox</span>
+    </label>
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Check this checkbox</span>
+    </label>
+    <label class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Check this checkbox</span>
+    </label>
+  </div>
+
+  <div class="select-group">
+    <p>Radio:</p>
+    <label class="custom-control custom-radio">
+      <input id="radio1" name="radio" type="radio" class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Toggle this radio</span>
+    </label>
+    <label class="custom-control custom-radio">
+      <input id="radio2" name="radio" type="radio" class="custom-control-input">
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Or toggle this radio</span>
+    </label>
+  </div>
+</div>
+
+<div class="form-elements">
+  <div class="select-group">
+    <p>Default forms:</p>
+    <form>
+       <div class="form-group default-input">
+        <label for="inputEmail" class="required">Email</label>
+        <div class="input-group mr-sm-2">
+          <input type="email" class="form-control driven-form-input" id="inputEmail" name="inputEmail" placeholder="Email" aria-describedby="emailHelp" required >
+        </div>
+      </div>
+      <div class="form-group default-input password">
+        <label for="inputEmail">Password:</label>
+        <div class="input-group mr-sm-2">
+          <div class="password-protection">
+            <div class="indicator low"></div>
+          </div>
+          <input type="password" class="form-control driven-form-input" id="inputEmail" name="inputEmail" placeholder="Password" aria-describedby="emailHelp" required >
+        </div>
+      </div>
+      <div class="form-group default-input password password-secure">
+        <p>Password secure:</p>
+        <div class="input-group mr-sm-2">
+          <div class="password-protection">
+            <div class="indicator low"></div>
+          </div>
+        </div>
+        <div class="input-group mr-sm-2">
+          <div class="password-protection">
+            <div class="indicator medium"></div>
+          </div>
+        </div>
+        <div class="input-group mr-sm-2">
+          <div class="password-protection">
+            <div class="indicator high"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group default-input required">
+        <label for="inputEmail">Error field</label>
+        <div class="input-group mr-sm-2">
+          <div class="input-group-addon required"></div>
+          <input type="email" class="form-control driven-form-input" id="inputEmail" name="inputEmail" placeholder="Email" aria-describedby="emailHelp" required >
+        </div>
+      </div>
+      <div class="form-group default-input">
+        <label for="exampleTextarea">Textarea</label>
+        <div class="input-group">
+          <textarea class="form-control zion-textarea" id="exampleTextarea" rows="3" placeholder="Your message"></textarea>
+        </div>
+      </div>
+      <div class="form-group default-input">
+        <label for="exampleTextarea">Range slider:</label>
+        <div class="input-group">
+          <input type="range" class="zion-range">
+        </div>
+      </div>
+      <div class="form-group buttons">
+        <p>Buttons:</p>
+        <button type="button" class="btn btn-secondary back-button float-left">Back</button>
+        <button type="button" class="btn btn-secondary next-button float-left">Next</button>
+        <button type="button" class="btn btn-secondary next-button float-left" disabled>Done</button>
+      </div>
+    </form>
+</div>

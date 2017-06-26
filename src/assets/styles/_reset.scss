@@ -1,0 +1,38 @@
+body {
+  font-family: 'Geometria';
+  font-size: 14px;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+// rewrite bootstrap dropdown styles
+.dropdown-menu {
+  display: block;
+}

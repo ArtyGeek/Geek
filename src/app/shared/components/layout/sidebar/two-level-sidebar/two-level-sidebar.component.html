@@ -1,0 +1,17 @@
+<div class="two-level-sidebar d-flex" [ngClass]="{'open': openSidebar}">
+  <ul class="main-column">
+    <li class="main-column-item d-flex align-items-center justify-content-center" *ngFor="let item of items; let i = index" id="{{i}};" (click)="updateSidebar(i);" [ngClass]="{'active': item.active}">
+      <i class="fa {{item.iconClass}}" aria-hidden="true"></i>
+      <!-- <p>{{item.name}}</p> -->
+    </li>
+  </ul>
+  <div class="sidebar-column flex-column fill">
+    <div class="header d-flex align-items-center">{{activeItem.name}}</div>
+    <ul class="nav flex-column">
+      <app-sidebar-item [activeItem]="activeItem" [level]="level"></app-sidebar-item>
+    </ul>
+  </div>
+  <!-- <ul class="nav sidebar-column flex-column">
+    <app-sidebar-item [activeItem]="activeItem" [level]="level"></app-sidebar-item>
+  </ul> -->
+</div>

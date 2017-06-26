@@ -1,0 +1,200 @@
+<div>
+  <div class="zion-table">
+    <div class="action-header d-flex align-items-center justify-content-between">
+      <div class="table-name">{{tableName}}</div>
+      <div class="grid-action-nav d-flex align-items-center justify-content-between">
+        <button class="fa fa-plus" title="Add new row" (click)="addNewRow()"></button>
+        <button class="fa fa-download"></button>
+        <div class="grid-search" [ngClass]="{'open': openSearch}">
+          <span class="fa fa-search" (click)="showSearchField()"></span>
+          <input type='text' (keyup)='updateFilter($event)' (blur)="showSearchField()" #gridsearch/>
+        </div>
+        <!-- <button class="fa fa-refresh"></button> -->
+        <div style="margin-right: 35px; color: #adadad; font-size: 16px;">
+          <grid-action [dropdownItems]="dropdownItemsToggling" [toggleColumns]="true"></grid-action>
+        </div>
+        <button class="fa fa-arrow-down" (click)="showCollapse()"></button>      
+      </div>
+    </div>
+    <div class="collapsed-area d-flex align-items-center justify-content-end" [ngClass]="{'open': openCollapse}">
+      <button class="fa fa-plus"></button>
+      <button class="fa fa-download"></button>
+    </div>
+    <ngx-datatable
+      #maintable
+      class="material expandable striped"
+      [rows]="rows"
+      [columnMode]="'force'"
+      [headerHeight]="headerHeight"
+      [footerHeight]="footerHeight"
+      [rowHeight]="rowHeight"
+      [scrollbarV]="true"
+      [limit]="limit"
+      [externalSorting]="true"
+
+      [selected]="selected"
+      [selectionType]="'checkbox'"
+      (activate)="onActivate($event)"
+      (select)='onSelect($event)'
+      (sort)='onSort($event)'
+      (page)="onPage($event)">
+      
+      <!-- dynamic building of columns -->
+     <!--  <ngx-datatable-column *ngFor="let column of columns" name="{{column.name || column.prop}}">
+        <ng-template *ngIf="column.cellTemplate" let-row="row" let-value="value" ngx-datatable-cell-template>
+          {{column.cellTemplate}}
+        </ng-template>
+      </ngx-datatable-column> -->
+
+       <!-- Row Detail Template -->
+      <ngx-datatable-row-detail [rowHeight]="100" #myDetailRow (toggle)="onDetailToggle($event)" >
+        <ng-template let-row="row" ngx-datatable-row-detail-template>
+          <div style="padding-left:35px;">
+            <div><strong>Row</strong></div>
+            <div>{{row.$$index}}, {{row.name}}</div>
+          </div>
+        </ng-template>
+      </ngx-datatable-row-detail>
+
+      <ngx-datatable-column
+        [width]="50"
+        [resizeable]="false"
+        [sortable]="false"
+        [draggable]="false"
+        [headerClass]="'empty'"
+        [canAutoResize]="false">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <div class="empty-cell">_</div>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <a
+            href="#"
+            [class.datatable-icon-right]="!row.$$expanded"
+            [class.datatable-icon-down]="row.$$expanded"
+            title="Expand/Collapse Row"
+            (click)="toggleExpandRow($event, row)">
+          </a>
+        </ng-template>
+      </ngx-datatable-column>
+      
+<!--       <ngx-datatable-column
+        [width]="50"
+        [sortable]="false"
+        [canAutoResize]="false"
+        [draggable]="false"
+        [resizeable]="false">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+           <div class="grid-header-cell">#</div>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div>{{row.$$index}}</div>
+        </ng-template>
+      </ngx-datatable-column> -->
+
+      <ngx-datatable-column
+        *ngIf="selectAllCheckbox"
+        [width]="50"
+        [sortable]="false"
+        [canAutoResize]="false"
+        [draggable]="false"
+        [resizeable]="false"
+        [headerCheckboxable]="true"
+        [checkboxable]="true">
+      </ngx-datatable-column>
+
+      
+      <ngx-datatable-column [headerClass]="'empty'" name="Name" *ngIf="!columns[0].hidden">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+           <div (click)="headerClick(sort, $event)" class="grid-header-cell">Name</div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+          <span
+            title="Double click to edit"
+            (dblclick)="editing[row.$$index + '-name'] = true"
+            *ngIf="!editing[row.$$index + '-name']">
+            {{value}}
+          </span>
+          <input
+            autofocus
+            (blur)="updateValue($event, 'name', value, row)"
+            (keypress)="updateOnEnter($event, 'name', value, row)"
+            *ngIf="editing[row.$$index + '-name']"
+            type="text"
+            [value]="value"
+          />
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [headerClass]="'empty'" name="Gender" *ngIf="!columns[2].hidden">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+           <div (click)="headerClick(sort, $event)" class="grid-header-cell">Gender</div>
+        </ng-template>
+        <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+           <span
+            title="Double click to edit"
+            (dblclick)="editing[row.$$index + '-gender'] = true"
+            *ngIf="!editing[row.$$index + '-gender']">
+            {{value}}
+          </span>
+          <select
+            *ngIf="editing[row.$$index + '-gender']"
+            (change)="updateValue($event, 'gender', value, row)"
+            [value]="value">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [headerClass]="'empty'" name="Company" *ngIf="!columns[1].hidden">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+           <div (click)="headerClick(sort, $event)" class="grid-header-cell">Company</div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [headerClass]="'empty'" [sortable]="false" name="Age" *ngIf="!columns[3].hidden">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+           <div (click)="headerClick(sort, $event)" class="grid-header-cell">Age</div>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column
+        [width]="100"
+        [resizeable]="false"
+        [sortable]="false"
+        [draggable]="false"
+        [headerClass]="'empty'"
+        [canAutoResize]="false">
+        <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+          <div class="empty-cell">_</div>
+        </ng-template>
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <!-- <grid-action [dropdownItems]="dropdownItems"></grid-action> -->
+          <div class="row-action fa fa-pencil"></div>
+          <div class="row-action fa fa-trash" (click)="removeRow(row)"></div>
+        </ng-template>
+      </ngx-datatable-column>
+
+     <!--  <ngx-datatable-footer>
+        <ng-template 
+          ngx-datatable-footer-template 
+          let-rowCount="rowCount"
+          let-pageSize="pageSize"
+          let-selectedCount="selectedCount",
+          let-curPage="curPage"
+          let-offset="offset">
+          <div style="padding: 5px 10px">
+            <div>
+              <strong>Summary</strong>: Gender: Female
+            </div>
+            <hr style="width:100%" />
+            <div>
+              Rows: {{rowCount}} |
+              Size: {{pageSize}} |
+              Current: {{curPage}} |
+              Offset: {{offset}}
+            </div>
+          </div>
+        </ng-template>
+      </ngx-datatable-footer> -->
+
+    </ngx-datatable>
+  </div>
+</div>

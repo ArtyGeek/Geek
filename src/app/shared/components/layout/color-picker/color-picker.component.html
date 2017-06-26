@@ -1,0 +1,21 @@
+<div class="color-picker open" [ngClass]="{'open': showColorPicker}">
+  <div class="picker-icon" (click)="showPicker();">
+    <i class="fa fa-eyedropper" aria-hidden="true"></i>
+  </div>
+  <p class="picker-header modal-header">Theme Options</p>
+  <div class="picker-tabs d-flex justify-content-around align-items-center">
+    <p *ngFor="let item of colorsElements; let i = index;" [ngClass]="{'active': item.active}" (click)="changeActiveTab(i);">{{item.name}}</p>
+  </div>
+  <div class="picker-colors" [ngClass]="{'open': item.active}" *ngFor="let item of colorsElements">
+    <div class="color-row d-flex justify-content-between">
+      <div *ngFor="let color of item.colors; let i = index;" [ngClass]="{'none': !showColors(i)}">
+        <div class="color color-{{color.color}}"  [ngClass]="{'active': color.active, 'border': color.border}" (click)="changeColor(item, i);"></div>
+      </div>
+    </div>
+    <div class="color-row d-flex justify-content-between">
+      <div *ngFor="let color of item.colors; let i = index;" [ngClass]="{'none': showColors(i)}">
+        <div class="color color-{{color.color}}"  [ngClass]="{'active': color.active, 'border': color.border}" (click)="changeColor(item, i);"></div>
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,38 @@
+<form novalidate (ngSubmit)="submitForm(form)" [formGroup]="form" [hidden]="!isActive">
+
+  <label for="inlineFormInputGroupName" class="required">
+    Name 
+  </label>
+  <span class="fa fa-question input-help" id="helper-reactive">
+    <zion-helper [for]="'#helper-reactive'" [helperContent]="'Input your name'" [trigger]="'click'" [position]="'top-right'"></zion-helper>
+  </span>
+  <div class="input-group mr-sm-2">
+    <div class="input-group-addon required" *ngIf="form.get('name').hasError('required') && form.get('name').touched"></div>
+    <input type="text" class="form-control reactive-form-input" id="inlineFormInputGroupName" placeholder="Name" formControlName="name">
+  </div>
+
+  <label for="inlineFormInputGroupEmail" class="required">Email</label>
+  <div class="input-group mr-sm-2">
+    <div class="input-group-addon required" *ngIf="form.get('email').hasError('required') && form.get('email').touched"></div>
+    <input type="text" class="form-control reactive-form-input" id="inlineFormInputGroupEmail" placeholder="Email" formControlName="email">
+  </div>
+
+  <div formGroupName="password" class="row">
+    <div class="inline-input col-sm-6">
+      <label for="inlineFormInputGroupPass" class="required">Password</label>
+      <div class="input-group mr-sm-2" id="pass-id">
+        <div class="input-group-addon required" *ngIf="form.get('password').get('pass').hasError('required') && form.get('password').get('pass').touched"></div>
+        <input type="password" class="form-control reactive-form-input" id="inlineFormInputGroupPass" placeholder="Password" formControlName="pass">
+        <zion-helper [for]="'#pass-id'" [helperContent]="'Input your new password!'" [trigger]="'click'" [position]="'top'"></zion-helper>
+      </div>
+    </div>
+    <div class="inline-input col-sm-6">
+      <label for="inlineFormInputGroupPassConf" class="required">Confirm password</label>
+      <div class="input-group mr-sm-2 ">
+        <div class="input-group-addon required" *ngIf="form.get('password').get('confirm').hasError('required') && form.get('password').get('confirm').touched"></div>
+        <input type="password" class="form-control reactive-form-input" id="inlineFormInputGroupPassConf" placeholder="Confirm password" formControlName="confirm">
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-secondary next-button" type="submit" [disabled]="form.invalid">Sign up</button>
+</form>
